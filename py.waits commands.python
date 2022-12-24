@@ -1,0 +1,15 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+driver = webdriver.Chrome()
+import time
+
+driver.get("https://demo.guru99.com/test/newtours/")
+
+driver.implicitly_wait(10)
+
+assert"Welcome: Mercury Tours"in driver.title
+
+driver.find_element(By.NAME,"userName").send_keys("mercury")
+driver.find_element(By.NAME,"password").send_keys("mercury")
+driver.find_element(By.NAME,"submit").click()
